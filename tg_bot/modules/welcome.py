@@ -120,7 +120,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                update.effective_message.reply_text("hello 😎 thanks for using me make sure you promote me then i can safe your group for spammers 🥰🥰🥰")
+                update.effective_message.reply_text("Hello Thanks for adding me to this group promote me to admin destroy the spammers 😉")
 
             else:
                 # If welcome message is media, send with appropriate function
@@ -595,18 +595,18 @@ def user_button(bot: Bot, update: Update):
 
 WELC_HELP_TXT = ("Your group's welcome/goodbye messages can be personalised in multiple ways. If you want the messages"
                  " to be individually generated, like the default welcome message is, you can use *these* variables:\n"
-                 " - `{{first}}`: this represents the user's *first* name\n"
-                 " - `{{last}}`: this represents the user's *last* name. Defaults to *first name* if user has no "
+                 " - `{first}`: this represents the user's *first* name\n"
+                 " - `{last}`: this represents the user's *last* name. Defaults to *first name* if user has no "
                  "last name.\n"
-                 " - `{{fullname}}`: this represents the user's *full* name. Defaults to *first name* if user has no "
+                 " - `{fullname}`: this represents the user's *full* name. Defaults to *first name* if user has no "
                  "last name.\n"
-                 " - `{{username}}`: this represents the user's *username*. Defaults to a *mention* of the user's "
+                 " - `{username}`: this represents the user's *username*. Defaults to a *mention* of the user's "
                  "first name if has no username.\n"
-                 " - `{{mention}}`: this simply *mentions* a user - tagging them with their first name.\n"
-                 " - `{{id}}`: this represents the user's *id*\n"
-                 " - `{{count}}`: this represents the user's *member number*.\n"
-                 " - `{{chatname}}`: this represents the *current chat name*.\n"
-                 "\nEach variable MUST be surrounded by `{{}}` to be replaced.\n"
+                 " - `{mention}`: this simply *mentions* a user - tagging them with their first name.\n"
+                 " - `{id}`: this represents the user's *id*\n"
+                 " - `{count}`: this represents the user's *member number*.\n"
+                 " - `{chatname}`: this represents the *current chat name*.\n"
+                 "\nEach variable MUST be surrounded by `{}` to be replaced.\n"
                  "Welcome messages also support markdown, so you can make any elements bold/italic/code/links. "
                  "Buttons are also supported, so you can make your welcomes look awesome with some nice intro "
                  "buttons.\n"
@@ -640,13 +640,13 @@ def welcome_mute_help(bot: Bot, update: Update):
 
 # TODO: get welcome data from group butler snap
 # def __import_data__(chat_id, data):
-#     welcome = data.get('info', {}).get('rules')
-#     welcome = welcome.replace('$username', 'username')
-#     welcome = welcome.replace('$name', 'fullname')
-#     welcome = welcome.replace('$id', 'id')
-#     welcome = welcome.replace('$title', 'chatname')
-#     welcome = welcome.replace('$surname', 'lastname')
-#     welcome = welcome.replace('$rules', 'rules')
+#     welcome = data.get('info', {}).get('{rules}')
+#     welcome = welcome.replace('$username', '{username}')
+#     welcome = welcome.replace('$name', '{fullname}')
+#     welcome = welcome.replace('$id', '{id}')
+#     welcome = welcome.replace('$title', '{chatname}')
+#     welcome = welcome.replace('$surname', '{lastname}')
+#     welcome = welcome.replace('$rules', '{rules}')     
 #     sql.set_custom_welcome(chat_id, welcome, sql.Types.TEXT)
 
 
