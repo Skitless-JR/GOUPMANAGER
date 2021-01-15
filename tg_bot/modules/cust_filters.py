@@ -1,26 +1,17 @@
-import re
-from typing import Optional
+HANDLER_GROUP = 10
 
-import telegram
-from telegram import ParseMode, InlineKeyboardMarkup, Message, Chat
-from telegram import Update, Bot
-from telegram.error import BadRequest
-from telegram.ext import CommandHandler, MessageHandler, DispatcherHandlerStop, run_async, Filters
-from telegram.utils.helpers import escape_markdown, mention_markdown
+ENUM_FUNC_MAP = {
+	sql.Types.TEXT.value: dispatcher.bot.send_message,
+	sql.Types.BUTTON_TEXT.value: dispatcher.bot.send_message,
+	sql.Types.STICKER.value: dispatcher.bot.send_sticker,
+	sql.Types.DOCUMENT.value: dispatcher.bot.send_document,
+	sql.Types.PHOTO.value: dispatcher.bot.send_photo,
+	sql.Types.AUDIO.value: dispatcher.bot.send_audio,
+	sql.Types.VOICE.value: dispatcher.bot.send_voice,
+	sql.Types.VIDEO.value: dispatcher.bot.send_video,
+	sql.Types.VIDEO_NOTE.value: dispatcher.bot.send_video_note
+}
 
-from metabutler import dispatcher, LOGGER, OWNER_ID
-from metabutler.modules.disable import DisableAbleCommandHandler
-from metabutler.modules.helper_funcs.chat_status import user_admin
-from metabutler.modules.helper_funcs.extraction import extract_text
-from metabutler.modules.helper_funcs.filters import CustomFilters
-from metabutler.modules.helper_funcs.misc import build_keyboard_parser
-from metabutler.modules.helper_funcs.msg_types import get_filter_type
-from metabutler.modules.helper_funcs.string_handling import split_quotes, button_markdown_parser, escape_invalid_curly_brackets
-from metabutler.modules.sql import cust_filters_sql as sql
-
-from metabutler.modules.connection import connected
-
-from metabutler.modules.helper_funcs.alternate import send_message
 
 HANDLER_GROUP = 10
 
